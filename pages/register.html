@@ -5,6 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register - Cybernation</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Internal CSS for Registration Page */
+    /* Hero Section */
+    .register-hero {
+      background: url('../images/register-hero.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 150px 20px;
+      position: relative;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .register-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    /* Registration Form Section */
+    #registration-form {
+      padding: 50px 20px;
+      background-color: #F9FAFB;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1E3A8A;
+      font-size: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #1E3A8A;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 5px;
+      border: 1px solid #D1D5DB;
+      font-size: 1rem;
+      color: #333;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #1E3A8A;
+      box-shadow: 0 0 5px rgba(30, 58, 138, 0.5);
+    }
+
+    .form-group .tooltip {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
+      background-color: #1E3A8A;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .form-group input:hover + .tooltip,
+    .form-group select:hover + .tooltip {
+      display: block;
+    }
+
+    .form-group .error-message {
+      color: #EF4444;
+      font-size: 0.85rem;
+      margin-top: 5px;
+    }
+
+    .form-group input.error,
+    .form-group select.error {
+      border-color: #EF4444;
+    }
+
+    .form-group select {
+      cursor: pointer;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      width: 100%;
+      padding: 12px 25px;
+      background-color: #1E3A8A;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #3B82F6;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      color: #10B981;
+      margin-top: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 30px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -21,28 +160,43 @@
     </nav>
   </header>
 
-  <!-- Registration Section -->
-  <section id="register">
-    <h2>Register for Cybernation</h2>
-    <form>
-      <div class="form-group">
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="event">Event:</label>
-        <select id="event" name="event">
-          <option value="hackathon">Hackathon</option>
-          <option value="codecombat">Code Combat</option>
-          <option value="roborace">Robo Race</option>
-        </select>
-      </div>
-      <button type="submit">Register</button>
-    </form>
+  <!-- Registration Hero Section -->
+  <section class="register-hero">
+    <h1>Register for Cybernation</h1>
+  </section>
+
+  <!-- Registration Form Section -->
+  <section id="registration-form">
+    <div class="form-container">
+      <h2>Register Now</h2>
+      <form id="registrationForm" onsubmit="validateForm(event)">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+          <span class="tooltip">Enter your full name</span>
+          <p class="error-message" id="nameError"></p>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <span class="tooltip">Enter a valid email address</span>
+          <p class="error-message" id="emailError"></p>
+        </div>
+        <div class="form-group">
+          <label for="event">Event:</label>
+          <select id="event" name="event" required>
+            <option value="" disabled selected>Select an event</option>
+            <option value="hackathon">Hackathon</option>
+            <option value="codecombat">Code Combat</option>
+            <option value="roborace">Robo Race</option>
+          </select>
+          <span class="tooltip">Select the event you want to participate in</span>
+          <p class="error-message" id="eventError"></p>
+        </div>
+        <button type="submit" class="submit-btn">Register</button>
+        <p class="success-message" id="successMessage">Registration Successful!</p>
+      </form>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -53,6 +207,55 @@
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script>
+    // Form validation
+    function validateForm(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const eventSelect = document.getElementById('event');
+      let valid = true;
+
+      // Reset error states
+      document.getElementById('nameError').innerText = '';
+      document.getElementById('emailError').innerText = '';
+      document.getElementById('eventError').innerText = '';
+      name.classList.remove('error');
+      email.classList.remove('error');
+      eventSelect.classList.remove('error');
+
+      // Name validation
+      if (name.value.trim() === '') {
+        document.getElementById('nameError').innerText = 'Please enter your name.';
+        name.classList.add('error');
+        valid = false;
+      }
+
+      // Email validation
+      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailPattern.test(email.value.trim())) {
+        document.getElementById('emailError').innerText = 'Please enter a valid email address.';
+        email.classList.add('error');
+        valid = false;
+      }
+
+      // Event validation
+      if (eventSelect.value === '') {
+        document.getElementById('eventError').innerText = 'Please select an event.';
+        eventSelect.classList.add('error');
+        valid = false;
+      }
+
+      // If form is valid, show success message
+      if (valid) {
+        document.getElementById('successMessage').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('successMessage').style.display = 'none';
+          document.getElementById('registrationForm').reset();
+        }, 3000);
+      }
+    }
+  </script>
 </body>
 </html>
