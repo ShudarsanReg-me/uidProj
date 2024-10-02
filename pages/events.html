@@ -5,6 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events - Cybernation</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Internal CSS for Events Page */
+    /* Hero Section */
+    .events-hero {
+      background: url('../images/events-hero.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 150px 20px;
+      position: relative;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .events-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    /* Event Schedule Section */
+    #schedule {
+      padding: 50px 20px;
+      background-color: #F9FAFB;
+    }
+
+    #schedule h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #1E3A8A;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .schedule-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .schedule-item h3 {
+      color: #1E3A8A;
+      margin-bottom: 10px;
+    }
+
+    .schedule-item p {
+      margin-bottom: 5px;
+    }
+
+    /* Event Cards Section */
+    #event-cards {
+      padding: 50px 20px;
+    }
+
+    #event-cards h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #1E3A8A;
+    }
+
+    .events-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .event-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .event-card img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    .event-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      color: #1E3A8A;
+    }
+
+    .event-card p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* Call to Action */
+    #cta-events {
+      padding: 50px 20px;
+      background-color: #1E3A8A;
+      color: white;
+      text-align: center;
+    }
+
+    #cta-events h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    #cta-events p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    #cta-events .btn {
+      padding: 12px 25px;
+      background-color: #FBBF24;
+      color: #1E3A8A;
+      font-size: 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    #cta-events .btn:hover {
+      background-color: #F59E0B;
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -21,33 +160,89 @@
     </nav>
   </header>
 
-  <!-- Events Section -->
-  <section id="events">
-    <h2>Events</h2>
-    <div class="event-cards">
-      <div class="card">
-        <h3>Hackathon</h3>
-        <p>Compete with the best and solve real-world problems.</p>
+  <!-- Events Hero Section -->
+  <section class="events-hero">
+    <h1>Explore Our Events</h1>
+  </section>
+
+  <!-- Event Schedule Section -->
+  <section id="schedule">
+    <h2>Event Schedule</h2>
+    <div class="schedule-grid">
+      <div class="schedule-item">
+        <h3>Day 1: Kickoff</h3>
+        <p><strong>10:00 AM - 11:00 AM</strong></p>
+        <p>Opening Ceremony</p>
       </div>
-      <div class="card">
-        <h3>Code Combat</h3>
-        <p>Showcase your coding skills and stand out as a programming genius.</p>
+      <div class="schedule-item">
+        <h3>Day 2: Hackathon</h3>
+        <p><strong>9:00 AM - 9:00 PM</strong></p>
+        <p>24-Hour Coding Challenge</p>
       </div>
-      <div class="card">
-        <h3>Robo Race</h3>
-        <p>Design, build, and race robots against others in an exciting contest.</p>
+      <div class="schedule-item">
+        <h3>Day 3: Code Combat</h3>
+        <p><strong>11:00 AM - 5:00 PM</strong></p>
+        <p>Competitive Coding Rounds</p>
+      </div>
+      <div class="schedule-item">
+        <h3>Day 4: Robo Race</h3>
+        <p><strong>10:00 AM - 3:00 PM</strong></p>
+        <p>Robot Racing Challenge</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2024 Cybernation. All rights reserved.</p>
-      <p><a href="contact.html">Contact Us</a> | <a href="#">Privacy Policy</a></p>
-    </div>
-  </footer>
-
-  <script src="../js/main.js"></script>
-</body>
-</html>
+  <!-- Detailed Event Cards Section -->
+  <section id="event-cards">
+    <h2>Featured Events</h2>
+    <div class="events-grid">
+      <div class="event-card">
+        <img src="../images/hackathon-icon.png" alt="Hackathon Icon">
+        <h3>Hackathon</h3>
+        <p>Join the ultimate coding marathon and solve real-world problems with your team in 24 hours.</p>
+        <p><strong>Duration:</strong> 24 hours</p>
+        <p><strong>Prize:</strong> $5000</p>
+      </div>
+      <div class="event-card">
+        <img src="../images/code-combat-icon.png" alt="Code Combat Icon">
+        <h3>Code Combat</h3>
+        <p>Showcase your coding skills in this competitive coding showdown. Beat the best!</p>
+        <p><strong>Duration:</strong> 6 hours
+          <p><strong>Prize:</strong> $3000</p>
+        </div>
+        <div class="event-card">
+          <img src="../images/robotics-icon.png" alt="Robotics Icon">
+          <h3>Robotics Challenge</h3>
+          <p>Build, program, and race your robot against others in this exciting robotics competition.</p>
+          <p><strong>Duration:</strong> 5 hours</p>
+          <p><strong>Prize:</strong> $2000</p>
+        </div>
+        <div class="event-card">
+          <img src="../images/ai-icon.png" alt="AI Challenge Icon">
+          <h3>AI Innovation</h3>
+          <p>Test your AI knowledge by solving complex machine learning challenges and developing innovative solutions.</p>
+          <p><strong>Duration:</strong> 8 hours</p>
+          <p><strong>Prize:</strong> $4000</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Call to Action Section -->
+    <section id="cta-events">
+      <h2>Ready to Compete?</h2>
+      <p>Sign up now and be part of the biggest tech fest of the year! Show off your skills, compete for amazing prizes, and learn from the best.</p>
+      <a href="register.html" class="btn">Register Now</a>
+    </section>
+  
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2024 Cybernation. All rights reserved.</p>
+        <p><a href="contact.html">Contact Us</a> | <a href="#">Privacy Policy</a></p>
+      </div>
+    </footer>
+  
+    <script src="../js/main.js"></script>
+  </body>
+  </html>
+  
