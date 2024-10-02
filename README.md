@@ -1,5 +1,4 @@
 
-```markdown
 # UID Project
 
 ## Overview
@@ -48,6 +47,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For any inquiries or feedback, please reach out to [ShudarsanReg-me](https://github.com/ShudarsanReg-me).
 ```
 
-### Next Steps
-
-You can customize the sections, add images, and provide more specific usage instructions as you further develop the project. If you have any additional details you'd like to include or if there are specific features to highlight, let me know!
