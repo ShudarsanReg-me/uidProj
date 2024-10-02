@@ -1,4 +1,3 @@
-Here's a draft for a `README.md` file for your UID project based on the available information from the repository:
 
 ```markdown
 # UID Project
